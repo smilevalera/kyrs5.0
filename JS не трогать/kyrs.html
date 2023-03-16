@@ -1,0 +1,706 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link  href="script.js">
+    <title>Document</title> 
+    <style> 
+        *{ 
+            box-sizing: border-box; 
+            margin:0; 
+        } 
+        .container{ 
+            width: 100vw; 
+            height: 600px; 
+            background: url(img/prrda2-scaled.jpg) no-repeat left top /cover; 
+             
+            
+ 
+        } 
+        .footer{ 
+            width: 100vw; 
+            height:50vh; 
+            background-color: blue; 
+            padding-top: 50px; 
+            padding-bottom: 20px; 
+            background: url(img/трва.jpg) no-repeat left top /cover; 
+            display: flex;  
+            justify-content: center;  
+            text-align: center;  
+            align-items: center; 
+        } 
+        .header{ 
+            width: 100vw; 
+            height: 100px; 
+            background: url(img/новое\ небо.jpg) no-repeat left top /cover; 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center; 
+            text-align: center; 
+        } 
+        .weather{ 
+            font-size: 50px; 
+            margin:0; 
+ 
+        } 
+        .circle{ 
+            height: 300px; 
+            width: 300px; 
+            border-radius: 50%; 
+           
+        } 
+
+        .img{
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+        }
+
+        .temperature{ 
+            width: 20vw; 
+            height: 20vw; 
+            border-radius: 50%; 
+           /*  background-color: rgb(212, 25, 230); */ 
+            display: flex;  
+            justify-content: center;  
+            text-align: center;  
+            align-items: center; 
+             
+            box-shadow: 1px 1px 10px 10px rgb(78, 74, 74); 
+             
+ 
+        } 
+        .papa{ 
+            width: 100vw; 
+            height:110vh; 
+            
+ 
+        } 
+        .temp_c{ 
+            
+            font-size: 10rem; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+ 
+        } 
+        .main{ 
+            width:100vw; 
+            height: 500px; 
+            display: flex;  
+            justify-content: space-around;  
+            text-align: center;  
+            align-items: center; 
+        } 
+        .C{ 
+            width: 6vw; 
+            height: 20vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: url(img/celsius-degrees-sign_icon-icons.com_64204.png) no-repeat left top /cover;
+        } 
+        .teC{ 
+            font-size: 10rem; 
+            
+
+        } 
+        .wind{
+            width: 400px;
+            height: 300px;
+            border-radius: 50%;
+            font-size: 7rem;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: url(img/5036179.png) no-repeat left top /cover;
+        }
+        .humidity{
+            width: 400px;
+            height: 300px;
+            border-radius: 50%;
+            font-size: 7rem;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: url(img/1975551.png) no-repeat left top /cover;
+            
+        }
+
+        .huuumidity{
+            width: 400px;
+            height: 300px;
+            border-radius: 50%;
+            font-size: 7rem;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: url(img/1975551.png) no-repeat left top /cover;
+        }
+        .Presant{
+            font-size: 7rem;
+        }
+        .divPre{
+            width: 100px;
+            height: 100px;
+
+        }
+        .ApiH{
+            width: 100px;
+            height:100px;
+        }
+
+        .prosto{
+            width: 100vw;
+            height: 500px;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        
+            .btnCity{
+                width: 150px;
+                height: 50px;
+                background-color: #ccc;
+            }
+            .newBtnCity{
+                width: 250px;
+                height: 100px;
+                background-color: rgb(188, 27, 27);
+            }
+ 
+    </style> 
+</head> 
+<body>      
+   <div class="papa"> 
+        <div class="container"> 
+        <div class="header"> 
+            <p class="weather">Погода Беларусь</p>
+            <button class="btnMinsk btnCity" value="Minsk">Минск</button>
+            <button class="btnVitebsk btnCity" value="Vitebsk">Витебск</button>
+            <button class="btnBrest btnCity" value="Brest">Брест</button> 
+        </div> 
+        <div class = "main"> 
+            <div class = "wind">
+                
+            </div>
+            <div class="circle">
+                <img src="" alt="Weather" class = "img">
+            </div> 
+            <div class = "humidity">
+                <div class = "ApiH"></div>
+                <div class = "divPre">
+                    <p class = "Presant">%</p>
+                </div>
+                
+            </div>
+            
+
+        </div> 
+             
+    </div> 
+    <div class = footer> 
+        <div class = "temperature"> 
+           <div class = "temp_c"></div> 
+           <div class = "C"> 
+               <p class = "teC"></p> 
+           </div> 
+        </div> 
+    </div> 
+</div> 
+<!-- <div class = "prosto"></div> -->
+ 
+<!--     <script>
+        
+        
+        let humidityClass = document.querySelector('.huuumidity')
+        let Pweather = document.querySelector('.weather')
+        let header = document.querySelector('.header');
+        let Prosto = document.querySelector('.prosto')
+        let image = document.querySelector('.img'); 
+        let tempCard = document.querySelector('.temp_c'); 
+        let Wind = document.querySelector('.wind');
+        let Humidity = document.querySelector('.humidity')
+        let HApi = document.querySelector('.ApiH')
+        let box = document.querySelector('.circle');
+        let Container = document.querySelector('.container');
+        let urlV = `http://api.weatherapi.com/v1/current.json?key=daebc8d0a3d64617ad0153304231402&q=Vitebsk&aqi=no`
+        let urlM = `http://api.weatherapi.com/v1/current.json?key=daebc8d0a3d64617ad0153304231402&q=Mogilev&aqi=no`
+        let url = `http://api.weatherapi.com/v1/current.json?key=daebc8d0a3d64617ad0153304231402&q=Minsk&aqi=no;` 
+        let urlB = `http://api.weatherapi.com/v1/current.json?key=daebc8d0a3d64617ad0153304231402&q=Brest&aqi=no`
+        let tempC; 
+        fetch(url) 
+            .then(res => res.json()) 
+            .then((res) => { 
+                console.log(res);
+                 tempCard.innerText = res.current.temp_c; 
+                 image.src = 'https:' + res.current.condition.icon; 
+                 Wind.innerText = res.current.wind_kph;
+                 HApi.innerText = res.current.humidity;
+
+
+                if(res.current.temp_c <= 0){
+                    box.style.boxShadow =  '10px 5px 5px 5px white';
+                }else{
+                    console.log('error white');
+                }
+
+
+                if(res.current.temp_c > 10){
+                    box.style.boxShadow = '10px 5px 5px 5px gold';
+                }else{
+                    console.log('error gold');
+                } 
+
+
+
+                if(res.current.temp_c > 0  || res.current.temp_c <= 10){
+                    box.style.boxShadow = '10px 5px 5px 5px rgba(11, 93, 156, 0.616) '
+                }else {
+                    console.log = ('error rgba')
+                }
+                  
+                
+            }) 
+        fetch(urlB) 
+            .then(res1 => res1.json()) 
+            .then((res1) => { 
+                console.log(res1);
+                celB.innerText = `${res1.current.temp_c}°C`;
+                imageB.src = 'https:' + res1.current.condition.icon;
+                windBrest.innerText = res1.current.wind_kph;
+                humidityBrest.innerText = `${res1.current.humidity}% `;
+
+            }) 
+        fetch(urlM)
+            .then(resM => resM.json()) 
+            .then((resM) => { 
+                console.log(resM);
+                celMogilev.innerText = `${resM.current.temp_c}°C`;
+                imageMogilev.src = 'https:' + resM.current.condition.icon;
+                windMogilev.innerText = resM.current.wind_kph;
+                humidityMogilev.innerText = `${resM.current.humidity}% `;
+
+            }) 
+
+        fetch(urlV)
+            .then(resV => resV.json()) 
+            .then((resV) => { 
+                console.log(resV);
+                celVitebsk.innerText = `${resV.current.temp_c}°C`;
+                imageVitebsk.src = 'https:' + resV.current.condition.icon;
+                windVitebsk.innerText = resV.current.wind_kph;
+                humidityVitebsk.innerText = `${resV.current.humidity}% `;
+
+            }) 
+            
+            
+            
+let world = document.querySelector('.header'); 
+    world.style.backgroundSize = '100vw 300px' 
+    console.log('world') 
+ 
+let word = document.querySelector('.weather'); 
+word.style.color ='black'; 
+word.style.shadow ='black'; 
+ 
+ 
+let grass = document.querySelector('.footer'); 
+grass.style.backgroundSize = '100vw 50vh'  
+
+let Celsius = document.querySelector('.C');
+Celsius.style.backgroundSize = '80px 170px'
+
+
+Wind.style.backgroundSize = '400px 300px';
+Wind.style.color = '#ADD8E6';
+
+
+Humidity.style.backgroundSize = '400px 300px';
+Humidity.style.color = 'Blue';
+
+
+let brestCel = document.createElement('div');
+brestCel.style.width = '100vw';
+brestCel.style.height = '50%'
+brestCel.style.backgroundColor = 'red'
+brestCel.style.background = 'url(img/prrda2-scaled.jpg) no-repeat left top /cover'
+brestCel.style.backgroundSize = '100vw 100vh';
+brestCel.style.display = 'flex';
+brestCel.style.justifyContent = 'space-around';
+brestCel.style.alignItems = 'center';
+brestCel.style.textAlign = 'center';
+
+
+let brestW = document.createElement('div')
+brestW.style.width = '100vw';
+brestW.style.height = '50%'
+brestW.style.backgroundColor = 'red';
+brestW.style.background = 'url(img/трва.jpg) no-repeat left top /cover'
+brestW.style.backgroundSize = '100vw 60vh';
+brestW.style.display = 'flex';
+brestW.style.justifyContent = 'center';
+brestW.style.alignItems = 'center';
+brestW.style.textAlign = 'center';
+
+
+let brestT = document.createElement('div');
+brestT.style.width = '20vw';
+brestT.style.height = '20vw';
+brestT.style.borderRadius = '50%';
+brestT.style.display = 'flex';
+brestT.style.justifyContent = 'center';
+brestT.style.alignItems = 'center';
+brestT.style.textAlign = 'center'
+brestT.style.boxShadow = '1px 1px 10px 10px rgb(78, 74, 74)';
+
+let windBrest = document.createElement('div')
+windBrest.style.width = '400px';
+windBrest.style.height = '300px';
+windBrest.style.borderRadius = '50%';
+windBrest.style.display = 'flex';
+windBrest.style.justifyContent = 'center';
+windBrest.style.alignItems = 'center';
+windBrest.style.textAlign = 'center'
+windBrest.style.background = 'url(img/5036179.png) no-repeat left top /cover, rgba(256, 54, 334, .5)';
+windBrest.style.backgroundSize = '400px 300px' 
+windBrest.style.fontSize = '7rem';
+windBrest.style.color = 'blue'
+
+let celB = document.createElement('div')
+celB.style.width = '75px';
+celB.style.height = '175px';
+celB.style.backgroundColor = '/* red */';
+celB.style.display = 'flex';
+celB.style.justifyContent = 'center';
+celB.style.alignItems = 'center';
+celB.style.textAlign = 'center'
+celB.style.fontSize = '7rem';
+celB.style.padding = '30px';
+
+let imageB = document.createElement('img')
+imageB.style.width = '200px';
+imageB.style.height = '200px';
+
+let iconB = document.createElement('div');
+iconB.style.width = '20vw';
+iconB.style.height = '20vw';
+iconB.style.borderRadius = '50%';
+iconB.style.display = 'flex';
+iconB.style.background = ''
+iconB.style.justifyContent = 'center';
+iconB.style.alignItems = 'center';
+iconB.style.textAlign = 'center'
+iconB.style.boxShadow = '1px 1px 10px 10px rgb(0, 34, 14)';
+
+
+
+
+
+let humidityBrest = document.createElement('div');
+humidityBrest.style.width = '400px';
+humidityBrest.style.height = '300px';
+humidityBrest.style.borderRadius = '50%';
+humidityBrest.style.display = 'flex';
+humidityBrest.style.justifyContent = 'center';
+humidityBrest.style.alignItems = 'center'; 
+humidityBrest.style.textAlign = 'center'
+humidityBrest.style.background = 'url(img/1975551.png) no-repeat left top /cover, rgba(0, 0, 0, .6)';
+// humidityBrest.style.backgroundColor = 'red' ;
+humidityBrest.style.backgroundSize = '400px 300px';
+humidityBrest.style.color = 'yellow';
+humidityBrest.style.fontSize = '7rem'
+
+
+
+
+
+
+
+
+let cityBrest  = document.createElement('button');
+cityBrest.style.width = '150px';
+cityBrest.style.height =  '70px'
+header.append(cityBrest);
+cityBrest.innerText = 'Брест';
+cityBrest.style.fontSize = '2rem'
+ let Cont;
+cityBrest.addEventListener('click', function(){
+    console.log(123123);
+    cont = document.createElement('div');
+    cont.style.width = '100vw';
+    cont.style.height = '120vh';
+    cont.style.backgroundColor = 'black';
+    container.append(cont)
+    cont.style.top = '100px';
+    cont.style.position = 'absolute';
+    cont.style.left = '0px'
+    cont.append(brestCel);
+    cont.append(brestW);
+    brestW.append(brestT)
+    brestT.append(celB);
+    brestCel.append(windBrest);
+    brestCel.append(iconB);
+    brestCel.append(humidityBrest);
+    iconB.append(imageB);
+     
+
+
+});
+
+
+let MogilevCel = document.createElement('div');
+MogilevCel.style.width = '100vw';
+MogilevCel.style.height = '50%'
+MogilevCel.style.backgroundColor = 'red'
+MogilevCel.style.background = 'url(img/prrda2-scaled.jpg) no-repeat left top /cover'
+MogilevCel.style.backgroundSize = '100vw 100vh';
+MogilevCel.style.display = 'flex';
+MogilevCel.style.justifyContent = 'space-around';
+MogilevCel.style.alignItems = 'center';
+MogilevCel.style.textAlign = 'center';
+
+
+let MogilevW = document.createElement('div')
+MogilevW.style.width = '100vw';
+MogilevW.style.height = '50%'
+MogilevW.style.backgroundColor = 'red';
+MogilevW.style.background = 'url(img/трва.jpg) no-repeat left top /cover'
+MogilevW.style.backgroundSize = '100vw 60vh';
+MogilevW.style.display = 'flex';
+MogilevW.style.justifyContent = 'center';
+MogilevW.style.alignItems = 'center';
+MogilevW.style.textAlign = 'center';
+
+
+let MogilevT = document.createElement('div');
+MogilevT.style.width = '20vw';
+MogilevT.style.height = '20vw';
+MogilevT.style.borderRadius = '50%';
+MogilevT.style.display = 'flex';
+MogilevT.style.justifyContent = 'center';
+MogilevT.style.alignItems = 'center';
+MogilevT.style.textAlign = 'center'
+MogilevT.style.boxShadow = '1px 1px 10px 10px rgb(78, 74, 74)';
+
+let windMogilev = document.createElement('div')
+windMogilev.style.width = '400px';
+windMogilev.style.height = '300px';
+windMogilev.style.borderRadius = '50%';
+windMogilev.style.display = 'flex';
+windMogilev.style.justifyContent = 'center';
+windMogilev.style.alignItems = 'center';
+windMogilev.style.textAlign = 'center'
+windMogilev.style.background = 'url(img/5036179.png) no-repeat left top /cover, rgba(256, 54, 334, .5)';
+windMogilev.style.backgroundSize = '400px 300px' 
+windMogilev.style.fontSize = '7rem';
+windMogilev.style.color = 'blue'
+
+let celMogilev = document.createElement('div')
+celMogilev.style.width = '75px';
+celMogilev.style.height = '175px';
+celMogilev.style.display = 'flex';
+celMogilev.style.justifyContent = 'center';
+celMogilev.style.alignItems = 'center';
+celMogilev.style.textAlign = 'center'
+celMogilev.style.fontSize = '7rem';
+celMogilev.style.padding = '30px';
+
+
+let imageMogilev = document.createElement('img')
+imageMogilev.style.width = '200px';
+imageMogilev.style.height = '200px';
+
+let iconMogilev = document.createElement('div');
+iconMogilev.style.width = '20vw';
+iconMogilev.style.height = '20vw';
+iconMogilev.style.borderRadius = '50%';
+iconMogilev.style.display = 'flex';
+iconMogilev.style.background = ''
+iconMogilev.style.justifyContent = 'center';
+iconMogilev.style.alignItems = 'center';
+iconMogilev.style.textAlign = 'center'
+iconMogilev.style.boxShadow = '1px 1px 10px 10px rgb(0, 34, 14)';
+
+
+
+
+
+let humidityMogilev = document.createElement('div');
+humidityMogilev.style.width = '400px';
+humidityMogilev.style.height = '300px';
+humidityMogilev.style.borderRadius = '50%';
+humidityMogilev.style.display = 'flex';
+humidityMogilev.style.justifyContent = 'center';
+humidityMogilev.style.alignItems = 'center'; 
+humidityMogilev.style.textAlign = 'center'
+humidityMogilev.style.background = 'url(img/1975551.png) no-repeat left top /cover, rgba(0, 0, 0, .6)';
+
+humidityMogilev.style.backgroundSize = '400px 300px';
+humidityMogilev.style.color = 'yellow';
+humidityMogilev.style.fontSize = '7rem'
+
+
+
+let cityMogilev  = document.createElement('button');
+cityMogilev.style.width = '150px';
+cityMogilev.style.height =  '70px'
+header.append(cityMogilev);
+cityMogilev.innerText = 'Могилёв';
+cityMogilev.style.fontSize = '2rem'
+ let Cont1;
+ cityMogilev.addEventListener('click', function(){
+    console.log('good');
+    Cont1 = document.createElement('div');
+    Cont1.style.width = '100vw';
+    Cont1.style.height = '120vh';
+    Cont1.style.backgroundColor = 'black';
+    Container.append(Cont1);
+    Cont1.style.top = '100px';
+    Cont1.style.position = 'absolute';
+    Cont1.style.left = '0px';
+    Cont1.append(MogilevCel);
+     Cont1.append(MogilevW);
+     MogilevW.append(MogilevT)
+     MogilevT.append(celMogilev);
+     MogilevCel.append(windMogilev);
+     MogilevCel.append(iconMogilev);
+     MogilevCel.append(humidityMogilev);
+     iconMogilev.append(imageMogilev);
+
+});
+
+let VitebskCel = document.createElement('div');
+VitebskCel.style.width = '100vw';
+VitebskCel.style.height = '50%'
+VitebskCel.style.backgroundColor = 'red'
+VitebskCel.style.background = 'url(img/prrda2-scaled.jpg) no-repeat left top /cover'
+VitebskCel.style.backgroundSize = '100vw 100vh';
+VitebskCel.style.display = 'flex';
+VitebskCel.style.justifyContent = 'space-around';
+VitebskCel.style.alignItems = 'center';
+VitebskCel.style.textAlign = 'center';
+
+
+let VitebskW = document.createElement('div')
+VitebskW.style.width = '100vw';
+VitebskW.style.height = '50%'
+VitebskW.style.backgroundColor = 'red';
+VitebskW.style.background = 'url(img/трва.jpg) no-repeat left top /cover'
+VitebskW.style.backgroundSize = '100vw 60vh';
+VitebskW.style.display = 'flex';
+VitebskW.style.justifyContent = 'center';
+VitebskW.style.alignItems = 'center';
+VitebskW.style.textAlign = 'center';
+
+
+let VitebskT = document.createElement('div');
+VitebskT.style.width = '20vw';
+VitebskT.style.height = '20vw';
+VitebskT.style.borderRadius = '50%';
+VitebskT.style.display = 'flex';
+VitebskT.style.justifyContent = 'center';
+VitebskT.style.alignItems = 'center';
+VitebskT.style.textAlign = 'center'
+VitebskT.style.boxShadow = '1px 1px 10px 10px rgb(78, 74, 74)';
+
+let windVitebsk = document.createElement('div')
+windVitebsk.style.width = '400px';
+windVitebsk.style.height = '300px';
+windVitebsk.style.borderRadius = '50%';
+windVitebsk.style.display = 'flex';
+windVitebsk.style.justifyContent = 'center';
+windVitebsk.style.alignItems = 'center';
+windVitebsk.style.textAlign = 'center'
+windVitebsk.style.background = 'url(img/5036179.png) no-repeat left top /cover, rgba(256, 54, 334, .5)';
+windVitebsk.style.backgroundSize = '400px 300px' 
+windVitebsk.style.fontSize = '7rem';
+windVitebsk.style.color = 'blue'
+
+let celVitebsk = document.createElement('div')
+celVitebsk.style.width = '75px';
+celVitebsk.style.height = '175px';
+celVitebsk.style.display = 'flex';
+celVitebsk.style.justifyContent = 'center';
+celVitebsk.style.alignItems = 'center';
+celVitebsk.style.textAlign = 'center'
+celVitebsk.style.fontSize = '7rem';
+celVitebsk.style.padding = '30px';
+
+
+let imageVitebsk = document.createElement('img')
+imageVitebsk.style.width = '200px';
+imageVitebsk.style.height = '200px';
+
+let iconVitebsk = document.createElement('div');
+iconVitebsk.style.width = '20vw';
+iconVitebsk.style.height = '20vw';
+iconVitebsk.style.borderRadius = '50%';
+iconVitebsk.style.display = 'flex';
+iconVitebsk.style.background = ''
+iconVitebsk.style.justifyContent = 'center';
+iconVitebsk.style.alignItems = 'center';
+iconVitebsk.style.textAlign = 'center'
+iconVitebsk.style.boxShadow = '1px 1px 10px 10px rgb(0, 34, 14)';
+
+
+
+
+
+let humidityVitebsk = document.createElement('div');
+humidityVitebsk.style.width = '400px';
+humidityVitebsk.style.height = '300px';
+humidityVitebsk.style.borderRadius = '50%';
+humidityVitebsk.style.display = 'flex';
+humidityVitebsk.style.justifyContent = 'center';
+humidityVitebsk.style.alignItems = 'center'; 
+humidityVitebsk.style.textAlign = 'center'
+humidityVitebsk.style.background = 'url(img/1975551.png) no-repeat left top /cover, rgba(0, 0, 0, .6)';
+
+humidityVitebsk.style.backgroundSize = '400px 300px';
+humidityVitebsk.style.color = 'yellow';
+humidityVitebsk.style.fontSize = '7rem'
+
+
+
+let cityVitebsk  = document.createElement('button');
+cityVitebsk.style.width = '150px';
+cityVitebsk.style.height =  '70px'
+header.append(cityVitebsk);
+cityVitebsk.innerText = 'Витебск';
+cityVitebsk.style.fontSize = '2rem'
+ let Cont3;
+ cityVitebsk.addEventListener('click', function(){
+    console.log('goodV');
+    Cont3 = document.createElement('div');
+    Cont3.style.width = '100vw';
+    Cont3.style.height = '120vh';
+    Cont3.style.backgroundColor = 'black';
+    Container.append(Cont3);
+    Cont3.style.top = '100px';
+    Cont3.style.position = 'absolute';
+    Cont3.style.left = '0px';
+    Cont3.append(VitebskCel);
+     Cont3.append(VitebskW);
+     VitebskW.append(VitebskT)
+     VitebskT.append(celVitebsk);
+     VitebskCel.append(windVitebsk);
+     VitebskCel.append(iconVitebsk);
+     VitebskCel.append(humidityVitebsk);
+     iconVitebsk.append(imageVitebsk);
+
+});
+
+
+
+    </script>  -->
+    <script src="./script.js"></script>
+</body> 
+</html>
